@@ -133,12 +133,12 @@ class OLED_0in91(object):
         return buf
 
     def show_image(self, pBuf):
-        for i in range(0, self.Page):
+        for i in range(self.Page):
             self.command(0xB0 + i)  # set page address
             self.command(0x00)  # set low column address
             self.command(0x10)  # set high column address
             # write data #
-            for j in range(0, self.Column):
+            for j in range(self.Column):
                 self.data(pBuf[j + self.width * i])
 
     def clear(self):

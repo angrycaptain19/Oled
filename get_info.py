@@ -30,10 +30,7 @@ def get_host_ip():
 
 
 def get_weather(name):
-    if name == "Q":
-        param = Q
-    else:
-        param = L
+    param = Q if name == "Q" else L
     res = ""
     try:
         response = requests.get(
